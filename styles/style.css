@@ -132,9 +132,14 @@ header section .information-container
 
 /* -------Table space between cells--------*/
 table {
-    border-collapse: separate; /* Required for it to work */
+    border-collapse: collapse /* Required for it to work */
     border-spacing:  2rem 0px; /* Horizontal and vertical spacing between cells */
   }
+th, td{
+  /*border:1px solid black;*/
+  padding: 10px;
+  text-align: left;
+}
   
 /* -- MAIN - Technologies SECTION -- */
 .technologies .container
@@ -213,9 +218,12 @@ a:hover {
 {
     body {  
         color: #000000; /* Classic green color for the text */
-        border: 2px solid #33ff33;
-        background-color:lightyellow; /* Set black as background for the "hacky" appearance */
+        border: 2px solid #3c3d3c;
+        /*background-color:rgb(255, 255, 255);  Set black as background for the "hacky" appearance */
+        background: linear-gradient(#2d86034c, #88ed837a);
+        
         }
+    
      header section
       {
         display:grid;
@@ -223,25 +231,7 @@ a:hover {
         height: 30rem;
         
       }
-      
-    header section .image-container
-    {
-      display: flex;
-      justify-content: center; /* align horizontal */
-      align-items: center; /* Positions itself to the start of y-axis. */
-      /* Makes the image shape square. */
-      width: 15rem;
-      height: 15rem;
-    }
-    header section .image-container img
-    {            
-      /* Fits the image into the container div. */
-      width: 80%;
-      height: 80%;
-      border-radius: 50%; /* Rounds the image. */
-      object-fit: cover; /* Preserves the original aspect ratio. */
-      object-position: 100% 20%; /* Makes the face visible moving the image down. */
-    } 
+          
     /* -- MAIN - Technologies SECTION -- */
     .technologies .container
     {
@@ -281,9 +271,65 @@ a:hover {
   {
     padding: 0.5rem 1rem;
     color: #000000;
-    border: 2px solid #33ff33;
+    border: 2px solid #000000;
     background-color: #ffffff;
   }
+  main section,
+  footer section
+  {
+    margin: 4rem 0; /* Separates them using collapsing margins. */
+    border-top: 2px solid #000000; /* Strengthens the separation between them. */
+  }
 
-      
+  /*table styyle*/
+        
+table, thead, tbody, th, td, tr
+  {
+    display: block;
+  }
+thead
+  {
+    display: none;
+  }
+tr
+{
+  margin-bottom: 15px;
+  border: 1px solid black;
+  padding: 10px;  
+}
+td
+{
+  border: none;
+  position: relative;
+  padding-left: 35%;  
+}
+td::before
+{
+  position:absolute;
+  left:10px;
+  top:10px;
+  font-weight: bold;
+}
+
+td:nth-child(1)::before{content:"Tool:";}
+td:nth-child(2)::before{content:"Desciption:";}
+td:nth-child(3)::before{content:"Proficiency:";}
+
+/* -- MAIN - Contact SECTION -- */
+
+
+.contact .text-input-container,
+.contact .select-container,
+.contact .checkbox-container{
+  display: flex;
+  width: 20rem;
+  margin-bottom: 1rem;
+  align-items: left;
+}
+
+.contact .text-input-container input,
+.contact .select-container select{
+  width: 50%;
+}
+
 }
